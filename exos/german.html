@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utilisateurs</title>
+</head>
+
+<body>
+  Les utilisateurs de base sont :
+  <pre id="from"></pre>
+
+  Prénom de l'utilisateur Allemand :
+  <pre id="to"></pre>
+</body>
+<script defer src="https://unpkg.com/json-formatter-js"></script>
+<script type="module">
+  import users from '../users.js';
+  import { render } from '../utils.js';
+
+  // TODO: Replace the variable with the proper computed value.
+  const germanFirstName = 'Angela';
+
+  render('from', users);
+  render('to', germanFirstName);
+</script>
+
+</html>

@@ -1,0 +1,10 @@
+{
+  "license": "MIT",
+  "author": "Mathieu TUDISCO <oss@mathieutu.dev>",
+  "devDependencies": {
+    "serve": "^12.0.1"
+  },
+  "scripts": {
+    "dev": "yarn serve"
+  }
+}
