@@ -22,11 +22,11 @@
 
 
   // TODO: Replace the variable with the proper computed value.
-  const formatedUsers = users.map(user => {
-    const name = user.name.title + ' ' + user.name.first + ' ' + user.name.last;
-    const age = user.dob.age;
-    const avatar = user.picture.large;
-    return {name, age, avatar};
+  const formatedUsers = users.map(({name, dob, picture}) => {
+    const formatedName = `${name.title} ${name.first} ${name.last}`;
+    const age = dob.age;
+    const avatar = picture.large;
+    return {name: formatedName, age, avatar};
   });
 
 
