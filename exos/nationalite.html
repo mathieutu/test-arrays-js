@@ -23,37 +23,12 @@ Tous les utilisateurs habitent ils en Nouvelle Zélande (true/false) ?
   import users from '../users.js';
   import { render } from '../utils.js';
 
-  const hasFrenchUser = false;
-  const allInNZ = false;
-
-  /*  let tableau = JSON.parse();
-    console.log(tableau)*/
-
-  users.forEach(element =>{ if(element.nat === "FR"){
-    const element = document.getElementById('to1');
-    element.innerHTML = true;
-  }})
-
-
-  let i = 0;
-  users.forEach(element =>{
-    if(element.location.country === "New Zealand"){
-      i++
-    }
-  })
-  if (i === users.length){
-    const element2 = document.getElementById('to2');
-    element2.innerHTML = true;
-  }
-  else {
-    const element2 = document.getElementById('to2');
-    element2.innerHTML = false;
-  }
-
+  const hasFrenchUser = users.some(element => element.nat === 'FR')
+  const allInNZ = users.every(element => element.location.country === 'New Zealand')
 
   render('from', users);
-  //render('to1', hasFrenchUser);
-  //render('to2', allInNZ);
+  render('to1', hasFrenchUser);
+  render('to2', allInNZ);
 </script>
 
 </html>
