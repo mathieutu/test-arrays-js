@@ -9,27 +9,51 @@
 </head>
 
 <body>
-  Les utilisateurs de base sont :
-  <pre id="from"></pre>
+Les utilisateurs de base sont :
+<pre id="from"></pre>
 
-  Y a t'il un utilisateur de nationalité française (true/false) ?
-  <pre id="to1"></pre>
+Y a t'il un utilisateur de nationalité française (true/false) ?
+<pre id="to1"></pre>
 
-  Tous les utilisateurs habitent ils en Nouvelle Zélande (true/false) ?
-  <pre id="to2"></pre>
+Tous les utilisateurs habitent ils en Nouvelle Zélande (true/false) ?
+<pre id="to2"></pre>
 </body>
 <script defer src="https://unpkg.com/json-formatter-js"></script>
 <script type="module">
   import users from '../users.js';
   import { render } from '../utils.js';
 
-  // TODO: Replace the variables with the proper computed values.
   const hasFrenchUser = false;
   const allInNZ = false;
 
+  /*  let tableau = JSON.parse();
+    console.log(tableau)*/
+
+  users.forEach(element =>{ if(element.nat === "FR"){
+    const element = document.getElementById('to1');
+    element.innerHTML = true;
+  }})
+
+
+  let i = 0;
+  users.forEach(element =>{
+    if(element.location.country === "New Zealand"){
+      i++
+    }
+  })
+  if (i === users.length){
+    const element2 = document.getElementById('to2');
+    element2.innerHTML = true;
+  }
+  else {
+    const element2 = document.getElementById('to2');
+    element2.innerHTML = false;
+  }
+
+
   render('from', users);
-  render('to1', hasFrenchUser);
-  render('to2', allInNZ);
+  //render('to1', hasFrenchUser);
+  //render('to2', allInNZ);
 </script>
 
 </html>
