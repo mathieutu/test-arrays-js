@@ -21,10 +21,13 @@
   import { render } from '../utils.js';
 
   // TODO: Replace the variable with the proper computed value.
-  const average = 30;
+  const average = users.reduce((total, suivant) =>  total + suivant.dob.age , 0  ) / users.length  ;
+  //const average = 30;
 
   render('from', users);
   render('to', average);
 </script>
 
 </html>
+
+
