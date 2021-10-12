@@ -21,8 +21,17 @@
   import { render } from '../utils.js';
 
   // TODO: Replace the variable with the proper computed value.
-  const usersQuantity = 5;
+//Méthode 1
+  // const usersQuantity = users.filter(user => {
+  //     if (user.dob.age <=30) return false      
 
+  //     if (user.dob.age >=60) return false
+     
+  //     return true
+  //   })   
+
+  //Méthode simplifiée
+  const usersQuantity = users.filter(user => (30<=user.dob.age && user.dob.age<=60)) 
   render('from', users);
   render('to', usersQuantity);
 </script>
