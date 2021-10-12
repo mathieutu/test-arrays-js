@@ -22,13 +22,12 @@
 
 
   // TODO: Replace the variable with the proper computed value.
-  const formatedUsers = [
-    {
-      "name": "Mr Mathieu TUDISCO",
-      "age": 30,
-      "avatar": "https://github.com/mathieutu.png"
-    }
-  ];
+  const formatedUsers = users.map(user => {
+    const name = user.name.title + ' ' + user.name.first + ' ' + user.name.last;
+    const age = user.dob.age;
+    const avatar = user.picture.large;
+    return {name, age, avatar};
+  });
 
 
   render('from', users);
