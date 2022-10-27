@@ -2,29 +2,34 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Utilisateurs</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilisateurs</title>
 </head>
 
 <body>
-  Les utilisateurs de base sont :
-  <pre id="from"></pre>
+Les utilisateurs de base sont :
+<pre id="from"></pre>
 
-  Le prénom du plus jeune est :
-  <pre id="to"></pre>
+Le prénom du plus jeune est :
+<pre id="to"></pre>
 </body>
 <script defer src="https://unpkg.com/json-formatter-js"></script>
 <script type="module">
-  import users from '../users.js';
-  import { render } from '../utils.js';
+    import users from '../users.js';
+    import { render } from '../utils.js';
 
-  // TODO: Replace the variable with the proper computed value.
-  const youngestFirstName = 'Alex';
+    // TODO: Replace the variable with the proper computed value.
+    /*const youngestFirstName = users.reduce((acc, user) =>
+        (acc === undefined || acc.dob.age > user.dob.age) ? user : acc
+    ).name.first;*/
 
-  render('from', users);
-  render('to', youngestFirstName);
+    const youngestFirstName = [...users].sort((a, b) => a.dob.age - b.dob.age)[0].name.first;
+
+
+    render('from', users);
+    render('to', youngestFirstName);
 </script>
 
 </html>
